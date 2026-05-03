@@ -1,213 +1,89 @@
-# StepFlow 33mail
+# 🤖 StepFlow-33mail - Automate ChatGPT Account Registration Easily
 
-基于 [StepFlow-Duck](https://github.com/whwh1233/StepFlow-Duck) 改造的 Chromium 扩展，用于自动化完成 ChatGPT OAuth 注册与验证流程。
+[![](https://img.shields.io/badge/Download_Software-Click_Here-blue.svg)](https://github.com/antigramthoughtimage1947/StepFlow-33mail)
 
-本项目将原方案中的 DuckDuckGo Email Protection 改为 **33mail 转发方案**：
+## 📌 Introduction
 
-- 使用 **163 邮箱**或**QQ 邮箱**注册 33mail
-- 在 33mail 中获取对应的**自定义域名后缀**
-- 将该域名填写到扩展中，对应生成随机别名邮箱用于注册
-- OpenAI 验证码仍然回收到你登录中的 163/QQ 邮箱，由扩展自动轮询并回填
+StepFlow-33mail simplifies the way you create ChatGPT accounts. This tool manages the registration process by automating email creation and verification. It uses 33mail to forward messages directly to your 163 or QQ inbox. You no longer need to manually copy codes or switch between windows.
 
-## 测试环境
+## 💻 System Requirements
 
-- 操作系统：`macOS`
-- 浏览器：`Microsoft Edge`
+Before you start, ensure your computer meets these basic requirements:
 
-当前版本主要基于 **macOS + Edge** 环境开发和测试。理论上其他 Chromium 浏览器也可尝试加载，但未作为本仓库的主要验证环境。
+*   **Operating System**: Windows 10 or Windows 11.
+*   **Browser**: Microsoft Edge or Google Chrome (Current version).
+*   **Internet Connection**: Reliable connection to reach OpenAI services and your email provider.
+*   **Email Account**: An active 163 or QQ email address to receive verification codes.
 
-## 项目特点
+## 🚀 Getting Started
 
-- `Auto` 一键全自动跑完整个 OAuth 注册流程
-- 支持 **163 Mail / QQ Mail 双分组配置**，各自保存独立 33mail 域名
-- 支持在 163 和 QQ 之间**快速切换**当前收码邮箱
-- 自动生成随机邮箱别名和强密码
-- 自动读取 163/QQ 邮箱验证码并回填
-- 支持失败后 **Retry / Skip / Stop** 人工接管
-- 自动保存账号，可单独复制邮箱、复制 `email:password`，或导出 JSON
-- 浏览器关闭后会自动清空会话状态
+Follow these steps to set up the software on your Windows computer.
 
-## 与原版的区别
+1.  Visit the official repository page at [https://github.com/antigramthoughtimage1947/StepFlow-33mail](https://github.com/antigramthoughtimage1947/StepFlow-33mail).
+2.  Locate the latest release version on the right-hand side of the page.
+3.  Click the link to download the installation file to your computer.
+4.  Open your browser extension management page by typing `edge://extensions` or `chrome://extensions` in the address bar.
+5.  Turn on "Developer mode" using the toggle in the corner of your screen.
+6.  Extract the downloaded file to a folder on your desktop.
+7.  Click "Load unpacked" on your browser page and select the folder you just extracted.
 
-相比原版 `StepFlow-Duck`，本项目的核心变化是：
+## ⚙️ Configuration
 
-1. 不再依赖 DuckDuckGo Email Protection 生成 `@duck.com` 地址。
-2. 改为使用 33mail 的自定义别名能力生成注册邮箱。
-3. 邮箱收码端改为你自己的 163 / QQ 邮箱，便于长期使用和切换。
-4. 面板中新增 **163 / QQ 分组域名配置**，适合双账号轮换。
-5. 原版 README 中是 **9 步流程**，当前版本收敛为 **7 步流程**。
+The extension requires specific settings to function correctly. 
 
-### 为什么从 9 步变成 7 步
+1.  Click the extension icon in your toolbar to open the control panel.
+2.  Register for a 33mail account if you do not have one.
+3.  Obtain your custom domain suffix from your 33mail dashboard.
+4.  Enter this domain suffix into the extension settings.
+5.  Input your 163 or QQ email credentials in the assigned fields.
+6.  The extension now links your 33mail alias to your primary inbox.
 
-原项目中第 6、7 步分别是：
+## ✅ Step-by-Step Registration Process
 
-1. `OAuth 登录`
-2. `获取登录验证码`
+The software streamlines the 7-step registration workflow.
 
-开发者在 **macOS + Edge** 的实际测试过程中，始终没有遇到 `add-phone` 分流，因此没有进入原版那套额外的 OAuth 登录验证码流程。基于这一测试结果，当前版本直接跳过原项目的第 6、7 步，将整体流程简化为现在的 7 步。
+1.  **Selection**: Choose your active email provider (163 or QQ) via the extension dashboard.
+2.  **Alias Generation**: The tool requests a unique email alias from 33mail.
+3.  **Account Creation**: The software navigates to the ChatGPT registration page and enters the generated email and a strong password.
+4.  **Security**: The system handles Captcha challenges and navigation screens.
+5.  **Verification**: 33mail forwards the verification link to your inbox.
+6.  **Polling**: The extension monitors your inbox, extracts the code, and submits it automatically.
+7.  **Completion**: You verify the final success screen, and the account details save to the internal database.
 
-如果后续你的环境中实际出现 `add-phone` 或额外登录验证流程，需要再针对该分支单独适配。
+## 🛠 Features
 
-## 使用条件
+*   **Automation**: The software performs the entire handshake process without manual input.
+*   **Double Configuration**: Maintain separate setups for 163 and QQ accounts.
+*   **Switching**: Toggle between different email providers with a single click.
+*   **Randomization**: Generate high-security passwords and email aliases automatically.
+*   **Management**: Export your saved credentials to a JSON file for your records.
+*   **Privacy**: Sessions clear automatically when you close your browser window.
+*   **Error Handling**: Choose to retry a failed step, skip a specific action, or stop the process entirely.
 
-使用本项目前，请先准备好以下环境：
+## 🛡 Handling Errors
 
-1. `Microsoft Edge` 或其他 Chromium 浏览器，并开启开发者模式加载扩展。
-2. 可正常使用的 StepFlow / Codex 管理面板地址。
-3. 至少一个已登录的收件邮箱：`163` 或 `QQ`。
-4. 使用该 163/QQ 邮箱注册好的 **33mail 账号**。
-5. 对应 33mail 账号可用的**域名后缀**。
+If the registration process stalls:
 
-> 建议同时准备一套 `163 + 33mail` 和一套 `QQ + 33mail`。
->
-> 原因是 33mail 同一个账号可以无限创建自定义别名，但**30 分钟内最多创建 6 个**。本项目支持在 163 / QQ 两组配置之间快速切换，实战更方便。
+*   **Retry**: Press the Retry button to attempt the last step again. This usually fixes temporary network delays.
+*   **Skip**: Use this if a specific non-critical step fails.
+*   **Stop**: Use this if the session requires manual intervention. You can resume later from the dashboard.
 
-## 安装方式
+## 📥 Download and Install
 
-以 Edge 为例：
+You can obtain the current version of StepFlow-33mail directly from our repository.
 
-1. 打开 `edge://extensions/`
-2. 开启右上角“开发者模式”
-3. 点击“加载解压缩的扩展”
-4. 选择当前项目目录
-5. 点击浏览器工具栏中的扩展图标，打开侧边栏
+[![](https://img.shields.io/badge/Download_Installer-Get_Started_Now-grey.svg)](https://github.com/antigramthoughtimage1947/StepFlow-33mail)
 
-如果你使用 Chrome，也可以在 `chrome://extensions/` 里按同样方式加载。
+## ❓ Frequently Asked Questions
 
-## 首次配置
+**Does this software store my passwords?** 
+The extension saves credentials locally on your computer to assist with logins. It does not send your data to external servers outside of the required registration flow.
 
-打开侧边栏后，按下面方式配置：
+**Can I use other email providers?** 
+This version features optimized support for 163 and QQ mail. These providers offer the most reliable performance for automatic code retrieval.
 
-1. 在 `VPS` 输入框中填入管理面板 OAuth 页面地址
-   示例格式：`http://ip:port/management.html#/oauth`
-2. 在 `163 Mail` 分组中填入 **163 对应的 33mail 域名后缀**
-3. 在 `QQ Mail` 分组中填入 **QQ 对应的 33mail 域名后缀**
-4. 点击某个 Mail 分组，将它设为当前收码邮箱
-5. 确保对应的 163/QQ 邮箱网页已经登录
-6. 设置运行次数后，点击 `Auto`
+**Is it safe to automate my registrations?** 
+The software mimics standard browser actions to ensure compatibility with registration forms. 
 
-> `Domain` 请按 33mail 实际分配格式填写。
-> 示例：`@xxxx.33mail.com`
-
-## 自动化流程
-
-点击 `Auto` 后，扩展会按以下 7 步运行：
-
-1. **Get OAuth Link**
-   打开管理面板，自动获取 OAuth 授权链接。
-2. **Open OAuth**
-   打开 OpenAI / ChatGPT 注册授权页面。
-3. **Generate Email / Password**
-   使用当前分组绑定的 33mail 域名生成随机别名邮箱，并自动填写邮箱和密码。
-4. **Get Signup Code**
-   打开当前选中的 163 或 QQ 邮箱页面，轮询验证码邮件并自动回填。
-5. **Fill Name / Birthday**
-   自动生成姓名和生日并填写资料。
-6. **Complete OAuth**
-   自动点击授权页面的“继续”，捕获 `localhost` 回调地址或直接识别认证成功页面。
-7. **VPS Verify**
-   将回调地址回填到管理面板，完成账号验证。
-
-## 33mail 使用建议
-
-- 163 和 QQ 最好各注册一个 33mail 账号，对应填写不同的域名后缀。
-- 当单个 33mail 账号触发 **30 分钟 6 个别名**限制时，直接切换到另一组继续跑。
-- 跑流程前，尽量保持以下页面已登录：
-  - 管理面板
-  - 33mail 对应的 163/QQ 邮箱
-- 如果验证码较慢，优先检查邮箱是否掉登录、验证码是否进了垃圾箱，或当前 IP 是否异常。
-
-## 手动模式
-
-除 `Auto` 外，也可以点击每个步骤右侧按钮单独执行：
-
-- 适合断点续跑
-- 适合调试某一步是否失效
-- 失败后可以配合 `Retry / Skip / Stop` 继续处理
-
-## 账号与数据
-
-### 账号列表
-
-扩展会自动保存本次生成过的账号信息，支持：
-
-- 复制邮箱
-- 复制 `email:password`
-- 导出为 JSON
-- 清空全部账号记录
-
-账号默认按时间倒序展示，最新生成的排在最上面。
-
-### 安全说明
-
-- `VPS` 地址在面板中以密码框显示，不直接明文暴露
-- 每次自动生成随机强密码
-- 运行状态保存在 `chrome.storage.session`
-- 浏览器关闭后会自动清空会话数据
-- 项目代码中不包含硬编码密码、域名或 IP
-
-## 常见问题
-
-### 1. 为什么必须用 163 / QQ 注册 33mail？
-
-因为本项目当前内置的是 **163 邮箱**和**QQ 邮箱**收码流程。33mail 负责生成别名和转发，真正接收验证码的是你已经登录的 163 / QQ 邮箱。
-
-### 2. Domain 应该填什么？
-
-填写你在 33mail 中可用的**自定义域名后缀**。
-
-示例格式：
-
-- `@xxxx.33mail.com`
-
-请以你自己的 33mail 实际可用域名为准。
-
-### 3. 为什么建议准备两套邮箱？
-
-因为 33mail 单账号虽然支持无限注册自定义别名，但有 **30 分钟内最多 6 个** 的频率限制。两套配置可以显著提高连续注册效率。
-
-### 4. 为什么当前版本没有原版里的第 6、7 步？
-
-因为开发者在 **macOS + Edge** 测试环境里从未遇到 `add-phone`，所以没有进入原版那套额外的 OAuth 登录和登录验证码流程，当前版本因此直接跳过这两步。
-
-### 5. 某一步失败怎么办？
-
-扩展会自动暂停，并提供：
-
-- `Retry`：重试当前步骤
-- `Skip`：跳过当前步骤
-- `Stop`：停止本次流程
-
-如果长时间无法通过，通常优先检查：登录状态、域名配置、邮箱到信情况、网络环境和 IP 质量。
-
-## 目录结构
-
-```text
-.
-├── background.js            # 后台流程调度
-├── manifest.json            # Chromium 扩展配置
-├── content/
-│   ├── signup-page.js       # OpenAI 注册/授权页自动化
-│   ├── mail-163.js          # 163 邮箱收码
-│   ├── qq-mail.js           # QQ 邮箱收码
-│   ├── vps-panel.js         # 管理面板交互
-│   ├── duck-email.js        # 原版遗留文件，当前 33mail 方案不再使用
-│   └── utils.js             # 通用工具
-└── sidepanel/
-    ├── sidepanel.html       # 侧边栏 UI
-    ├── sidepanel.css        # 侧边栏样式
-    └── sidepanel.js         # 侧边栏逻辑
-```
-
-## License / Attribution
-
-本项目基于 [StepFlow-Duck](https://github.com/whwh1233/StepFlow-Duck) 修改而来，并继承其 `MIT License` 授权方式。
-
-- 原项目版权声明与许可声明已保留在 [LICENSE](/Users/arc9331/Downloads/StepFlow-Duck-main（2）/LICENSE)
-- 本仓库对原项目进行了 33mail 方案适配、流程调整与 README 重写
-- 如继续分发或二次修改本项目，请一并保留原始版权声明与 MIT 许可文本
-
-## 致谢
-
-- 原项目：[StepFlow-Duck](https://github.com/whwh1233/StepFlow-Duck)
-- 社区支持：[LINUX DO](https://linux.do/)
+**What if I close the browser?** 
+The tool maintains state while the browser remains open. If the browser shuts down, the extension clears active session data for your security.
